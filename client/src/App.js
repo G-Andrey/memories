@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 import Navbar from './components/Navbar/Navbar.js';
 import Home from './components/Home/Home.js';
@@ -11,7 +11,7 @@ const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Container maxWidth="xl">
         <Navbar />
         <Switch>
@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/auth' exact component={() => (!user ? <Auth /> : <Redirect to='/posts'/>)}/>
         </Switch>
       </Container>
-    </BrowserRouter>
+    </HashRouter>
     
   );
 }
