@@ -17,7 +17,7 @@
 - Model schema following MVC framework with Mongoose to store user and post details
 - REST API to retrieve documents from MongoDB cloud storage
 - API endpoints with Express to perform CRUD operations on user posts
-- Encrytping sensitive user details with Bcrypt
+- Encrypting sensitive user details with Bcrypt
 - User authentication with JWT
 - OAuth2.0 for sign in and authentication using Google accounts
 - Managed app state with Redux
@@ -29,6 +29,7 @@
 - Responsive sign-up form
 - Search functionality using post title and post tags
 - User comments section on posts
+- User like feature
 - Organized file structure inline with industry best practices
 - Desktop and mobile friendly UX using MaterialUI
 - Frontend deployed with GH-Pages
