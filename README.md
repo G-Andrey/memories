@@ -1,6 +1,6 @@
 # A Full-Stack Social Media App 
 
-🌟Hosted @ https://g-andrey.github.io/memories/#/posts🌟
+🌟Hosted @ https://g-andrey.github.io/memories/#/posts 🌟
 
 ## Technologies Used 
 - ***M***ongoDB
