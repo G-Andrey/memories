@@ -40,7 +40,7 @@ const PostDetails = () => {
     history.push( `/posts/${_id}`);
   };
 
-  const recommendedPosts = posts?.filter(({ _id }) => _id !== post?._id).slice(0, 4);
+  const recommendedPosts = posts?.filter(({ _id }) => _id !== post?._id).slice(0, 3);
 
   return (
     <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
