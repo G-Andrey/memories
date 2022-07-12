@@ -11,7 +11,7 @@ import { signin, signup } from '../../actions/auth.js';
 
 const initialState = {firstName:"", lastName:"", email:"", password:"", confirmPassword: ""}; 
 
-const Auth = () => {
+const Auth = (props) => {
   const classes = useStyles();
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -22,14 +22,13 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData)
-
     if(isSignup){
       //Sign up action
       dispatch(signup(formData, history));
     } else{
       //Sign in action
-      dispatch(signin(formData, history));
+      dispatch(signin(formData, history, props.updateUser));
+      
     }
   };
 
@@ -53,6 +52,7 @@ const Auth = () => {
       dispatch({type: 'AUTH', data: { result, token} });
 
       history.push('/');
+      props.updateUser();
     } catch(error){
       console.log(error);
     }

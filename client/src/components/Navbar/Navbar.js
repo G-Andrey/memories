@@ -6,7 +6,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwt from 'jwt-decode';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const classes = useStyles();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ const Navbar = () => {
     dispatch( { type: 'LOGOUT' });
     history.push('/');
     setUser(null);
+    props.updateUser();
   };
 
   useEffect(() => {
@@ -48,7 +49,7 @@ const Navbar = () => {
             <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>
               {user.result.name.charAt(0)}
             </Avatar>
-            <Typography className={classes.userName} variant='h6'>
+            <Typography component={Link} to="/profile" className={classes.userName} variant='h6'>
               {user.result.name}
             </Typography>
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>
