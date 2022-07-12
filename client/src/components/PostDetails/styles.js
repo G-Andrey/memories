@@ -55,7 +55,7 @@ export default makeStyles((theme) => ({
     margin: '20px', 
     cursor: 'pointer', 
     borderRadius:'10px', 
-    padding: '5px',
+    padding: '15px',
     '&:hover': {
       background: "#c7c9c8",
       animation: '$shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
