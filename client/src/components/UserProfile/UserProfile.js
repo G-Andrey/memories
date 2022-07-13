@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid, Typography, Paper, Box, Divider, } from '@material-ui/core';
 import useStyles from './styles.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import PhotoIcon from '@material-ui/icons/Photo';
 import CommentIcon from '@material-ui/icons/Comment';
-import { getPosts } from '../../actions/posts.js';
+import { getUserPosts } from '../../actions/posts.js';
+import * as api from '../../api';
 
 import Form from '../Form/Form.js';
 import Posts from '../Posts/Posts.js';
@@ -15,10 +16,31 @@ const UserProfile = () => {
   const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [postCount, setpostCount] = useState(0);
+  const [likeCount, setlikeCount] = useState(0);
+  const [commentsCount, setcommentsCount] = useState(0);
 
   useEffect(() => {
-    //dispatch to get posts by user only
-    dispatch(getPosts(1))
+    dispatch(getUserPosts())
+
+    const fetchUserData = async () => {
+      const { data } = await api.getUserPosts();
+     
+      console.log(data);
+      setpostCount(data.length);
+
+      let likes = 0;
+      let comments = 0;
+
+      data.forEach(element => {
+        likes = likes + element.likes.length;
+        comments = comments + element.comments.length;
+      });
+      setlikeCount(likes);
+      setcommentsCount(comments);
+    }
+
+    fetchUserData() 
   }, [])
 
   return (
@@ -32,10 +54,10 @@ const UserProfile = () => {
               <PhotoIcon style={{ color: 'rgb(36, 153, 239)',fontSize: '50px', margin:"5px" }}/>
               <Box>
                 <Typography variant="h6" style={{fontSize: '14px',fontWeight: '600', color: 'rgb(95, 116, 141)'}}>
-                  Posts
+                  Memories
                 </Typography>
                 <Typography variant="h6" style={{fontSize: '18px',fontWeight: '600', color:'rgb(36, 153, 239)'}}>
-                  1000
+                  {postCount}
                 </Typography>
               </Box>
             </Box>
@@ -47,7 +69,7 @@ const UserProfile = () => {
                   Likes
                 </Typography>
                 <Typography variant="h6" style={{fontSize: '18px',fontWeight: '600', color:'rgb(140, 141, 255)'}}>
-                  1000
+                  {likeCount}
                 </Typography>
               </Box>
             </Box>
@@ -59,7 +81,7 @@ const UserProfile = () => {
                   Comments
                 </Typography>
                 <Typography variant="h6" style={{fontSize: '18px',fontWeight: '600', color:'rgb(140, 163, 186)'}}>
-                  1000
+                  {commentsCount}
                 </Typography>
               </Box>
             </Box>
@@ -71,7 +93,7 @@ const UserProfile = () => {
             <Grid item xs={12} sm={6} md={9}>
               <Paper>
                 <Typography variant='h6' align="center" style={{ marginBottom:'20px', padding:'10px' }}>
-                  Your Posts
+                  Your Memories
                 </Typography>
               </Paper>
               <Posts setCurrentId={setCurrentId}/>

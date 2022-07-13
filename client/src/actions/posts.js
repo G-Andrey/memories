@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_BY_SEARCH, START_LOADING, END_LOADING, FETCH_POST, COMMENT } from '../constants/actionTypes.js';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, FETCH_BY_SEARCH, START_LOADING, END_LOADING, FETCH_POST, COMMENT, FETCH_USER_ALL } from '../constants/actionTypes.js';
 import * as api from '../api';
 
 //Action Creators: functions that return acctions
@@ -95,6 +95,19 @@ export const commentPost = (value,id) => async(dispatch) => {
 
     return data.comments;
   } catch (error) {
+    console.log(error)
+  }
+};
+
+export const getUserPosts = () => async (dispatch) => {
+  try{
+    dispatch({ type: START_LOADING});
+
+    const { data } = await api.getUserPosts();
+
+    dispatch({ type: FETCH_USER_ALL, payload: data });
+    dispatch({ type: END_LOADING});
+  } catch(error) {
     console.log(error)
   }
 };

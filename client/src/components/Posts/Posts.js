@@ -9,14 +9,20 @@ const Posts = ( {setCurrentId} ) => {
   const classes = useStyles();
   const { posts, isLoading } = useSelector( (state) => state.posts);
 
-  if (!posts.length && !isLoading) return 'NO POSTS';
+  if (!posts.length && !isLoading) return (
+    <Paper elevation={6} className={classes.loadingPaper} > 
+      <Typography variant="h6">
+        No posts
+      </Typography>
+    </Paper>
+  );
 
   return (
     isLoading ? (
       <Paper elevation={6} className={classes.loadingPaper} >
         <CircularProgress size="4em"/> 
         <Typography variant="h6">
-          &nbsp; &nbsp; &nbsp; Loading all posts...
+          &nbsp; &nbsp; &nbsp; Loading posts...
         </Typography>
       </Paper>) 
     : (
