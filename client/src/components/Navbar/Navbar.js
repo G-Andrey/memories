@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { AppBar, Avatar, Typography, Toolbar, Button } from '@material-ui/core';
-import memories from '../../images/memories.png';
 import useStyles from './styles.js';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import jwt from 'jwt-decode';
+import PhotoCameraBackIcon from '@material-ui/icons/PhotoCamera';
 
 const Navbar = (props) => {
   const classes = useStyles();
@@ -41,7 +41,7 @@ const Navbar = (props) => {
         <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">
           Memories
         </Typography>
-        <img className={classes.image} src={memories} alt="app-logo" height="60"/>
+        <PhotoCameraBackIcon className={classes.image}/>
       </div>
       <Toolbar className={classes.toolbar}>
         {user ? (

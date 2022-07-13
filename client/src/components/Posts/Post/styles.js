@@ -17,7 +17,7 @@ export default makeStyles({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    borderRadius: '15px',
+    borderRadius: '4px',
     height: '100%',
     position: 'relative',
     transition: 'all 0.2s ease-in-out',
@@ -44,9 +44,19 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     margin: '20px',
+    '-webkit-line-clamp': '1',
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
   },
   title: {
     padding: '0 16px',
+    '-webkit-line-clamp': '1',
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
   },
   cardActions: {
     padding: '0 16px 8px 16px',
@@ -56,5 +66,12 @@ export default makeStyles({
   cardAction: {
     display: 'block',
     textAlign: 'initial',
+  },
+  message: {
+    '-webkit-line-clamp': '1',
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
   },
 });

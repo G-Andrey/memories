@@ -3,7 +3,7 @@ import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
   appBar: {
-    borderRadius: 15,
+    borderRadius: 10,
     margin: '30px 0',
     display: 'flex',
     flexDirection: 'row',
@@ -15,14 +15,15 @@ export default makeStyles((theme) => ({
     },
   },
   heading: {
-    color: theme.palette.primary.main,
+    color: 'rgb(95, 116, 141)',
     textDecoration: 'none',
     fontSize: '2em',
     fontWeight: 300,
   },
   image: {
     marginLeft: '10px',
-    marginTop: '5px',
+    color: 'rgb(95, 116, 141)',
+    fontSize: '40px',
   },
   toolbar: {
     display: 'flex',
@@ -50,7 +51,9 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
-    marginRight: '50px'
+    marginRight: '50px',
+    color: 'rgb(95, 116, 141)',
+    textDecoration: 'none',
   },
   brandContainer: {
     display: 'flex',

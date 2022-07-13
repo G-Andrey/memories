@@ -23,8 +23,8 @@ const UserProfile = () => {
 
   return (
     <div>
-      <Paper elevation={6} style={{ padding: '10px',marginBottom: "20px", borderRadius:'10px'}} >
-        <Typography variant='h5' align="center" style={{ color: 'rgb(95, 116, 141)', fontWeight: '600', marginBottom:'15px' }}>
+      <Paper elevation={6} style={{ padding: '10px',marginBottom: "20px", borderRadius:'4px', marginLeft: '24px', marginRight: '24px'}}>
+        <Typography variant='h5' align="center" style={{ color: 'rgb(95, 116, 141)', marginBottom:'10px' }}>
           Overview
         </Typography>
         <Box display="flex" justifyContent="space-between" alignItems="center" maxWidth='500px' margin="auto">
@@ -69,6 +69,11 @@ const UserProfile = () => {
         <Container maxWidth="xl">
           <Grid container className={classes.gridContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={6} md={9}>
+              <Paper>
+                <Typography variant='h6' align="center" style={{ marginBottom:'20px', padding:'10px' }}>
+                  Your Posts
+                </Typography>
+              </Paper>
               <Posts setCurrentId={setCurrentId}/>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
