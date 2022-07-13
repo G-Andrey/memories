@@ -24,7 +24,7 @@ const UserProfile = () => {
   return (
     <div>
       <Paper elevation={6} style={{ padding: '10px',marginBottom: "20px", borderRadius:'4px', marginLeft: '24px', marginRight: '24px'}}>
-        <Typography variant='h5' align="center" style={{ color: 'rgb(95, 116, 141)', marginBottom:'10px' }}>
+        <Typography variant='h6' align="center" style={{ color: 'rgb(95, 116, 141)', marginBottom:'10px' }}>
           Overview
         </Typography>
         <Box display="flex" justifyContent="space-between" alignItems="center" maxWidth='500px' margin="auto">

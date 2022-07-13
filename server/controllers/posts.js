@@ -6,7 +6,7 @@ import PostMessage from '../models/postMessage.js';
 
 export const getPosts = async (req,res) => {
   const { page } = req.query;
-
+  
   try{
     const LIMIT = 8;
     const startIndex = (Number(page) - 1) * LIMIT; //starting index of page
@@ -128,4 +128,15 @@ export const commentPost = async(req, res) => {
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {new: true});
 
   res.json(updatedPost);
+}
+
+export const getMyPosts = async(req, res) => {
+  
+  try {
+    const posts = await PostMessage.find({ creator: String(req.userId) });
+
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(404).json({ message: error.message})
+  }
 }

@@ -15,7 +15,7 @@ const auth = async(req, res, next) => {
 
     if (token && isCustomAuth){
       //decode token with our custom jwt secret that was used when creating user
-      decodedData = jwt.verify(token, process.env.JWT_SECRET);
+      decodedData = jwt.decode(token, process.env.JWT_SECRET);
 
       req.userId = decodedData?.id;
     } else{
