@@ -88,12 +88,15 @@ const Auth = (props) => {
           { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
           { !isSignup && 
-            <Button fullWidth variant="contained" className={classes.googleButton}>
+            <div className={classes.googleButton}>
               <GoogleLogin 
                 onSuccess={googleSuccess}
                 onError={googleFailure}
+                width="364"
+                theme="filled_blue"
+                shape="circle"
               />
-            </Button>
+            </div>
           }
           <Grid container justifyContent="flex-end">
             <Grid item>
