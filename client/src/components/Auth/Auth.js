@@ -99,7 +99,7 @@ const Auth = (props) => {
           }
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Button onClick={switchMode}>
+              <Button onClick={switchMode} style={{marginTop: '15px'}}>
                 { isSignup ? 'Already have an account? Sign In' : "Don't have an account? Sign up" }
               </Button>
             </Grid>
