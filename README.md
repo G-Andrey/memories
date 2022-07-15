@@ -10,6 +10,7 @@
 - Redux
 - OAuth2.0
 - JWT
+- React Router
 - MaterialUI
 
 ## Demo 📽️
