@@ -38,4 +38,5 @@
 - Frontend deployed with GH-Pages
 - Backend deployed to Heroku with configured environment variables
 
-Adapted from https://www.youtube.com/watch?v=VsUzmlZfYNg
+Adapted from [JavaScript Mastery](https://www.youtube.com/watch?v=VsUzmlZfYNg)
+
